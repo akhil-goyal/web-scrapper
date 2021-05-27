@@ -1,5 +1,6 @@
 const fetch = require('node-fetch');
 const cheerio = require('cheerio');
+const Sheet = require('./sheet');
 
 (async () => {
 
@@ -14,11 +15,17 @@ const cheerio = require('cheerio');
 
         const keyword = active.find('.tileKeyword').text();
         const description = active.find('.tileDescription').text();
-        const searches = active.find('.scoreTag').first().text();
+        const searchesPerMonth = active.find('.scoreTag').first().text().split('mo')[1];
 
-        return { keyword, description, searches }
+        return { keyword, description, searchesPerMonth }
     });
 
     console.log({trends});
+
+    const sheet = new Sheet();
+
+    await sheet.load();
+
+    sheet.addRows(trends);
 
 })();

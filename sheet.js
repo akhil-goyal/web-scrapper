@@ -3,7 +3,7 @@ const { GoogleSpreadsheet } = require('google-spreadsheet');
 module.exports = class Sheet {
 
     constructor() {
-        this.doc = new GoogleSpreadsheet('1g0w-nTqCDIFgluplIKyTq5KZR3TzA84BMPv4ZYGaJWw');
+        this.doc = new GoogleSpreadsheet('1kswl-tfCIoeTMbHHH08VVW8QdGZy1EMevjWnXHk0cIc');
     }
 
     async load() {
